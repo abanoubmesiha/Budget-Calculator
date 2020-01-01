@@ -3,13 +3,21 @@
         <div class="income-column">
             <h1>Income</h1>
             <div *ngFor="let item of budgetItems">
-                <app-budget-item-card *ngIf="item.amount >= 0" [item]=item (deletedItem)="deleteItem(item)"></app-budget-item-card>
+                <app-budget-item-card 
+                *ngIf="item.amount >= 0" 
+                [item]=item 
+                (deletedItem)="deleteItem(item)"
+                (cardClick)="onCardClicked(item)"></app-budget-item-card>
             </div>
         </div>
         <div class="expenses-column">
             <h1>Expenses</h1>
             <div *ngFor="let item of budgetItems">
-                <app-budget-item-card *ngIf="item.amount < 0" [item]=item (deletedItem)="deleteItem(item)"></app-budget-item-card>
+                <app-budget-item-card 
+                *ngIf="item.amount < 0" 
+                [item]=item 
+                (deletedItem)="deleteItem(item)"
+                (cardClick)="onCardClicked(item)"></app-budget-item-card>
             </div>
         </div>
     </div>
